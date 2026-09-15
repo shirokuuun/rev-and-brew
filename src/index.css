@@ -67,3 +67,27 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 500ms ease-out both;
 }
+
+@keyframes image-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.image-marquee-track {
+  animation: image-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.image-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-marquee-track {
+    animation-play-state: paused;
+  }
+}

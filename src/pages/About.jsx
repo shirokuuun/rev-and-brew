@@ -1,124 +1,117 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { business } from "../data/business";
 import DisplayImg from "../assets/display1.jpg";
 import DisplayImg2 from "../assets/display2.jpg";
 import HeroImg from "../assets/heroimg.jpg";
+import DetailImg from "../assets/img1.jpg";
+import ThirdWaveImg from "../assets/thirdwaveimg.jpg";
 
-const values = [
-  {
-    label: "Coffee",
-    title: "Brewed with intent",
-    copy: "Every drink starts with a clear recipe, careful timing, and a bar that cares about the cup in front of you.",
-  },
-  {
-    label: "Food",
-    title: "Easy to linger over",
-    copy: "Rice bowls, pasta, wraps, and snacks keep the table full without pulling focus from the conversation.",
-  },
-  {
-    label: "Place",
-    title: "Made for staying",
-    copy: "Kinfolk is built around the small pauses: a quiet seat, another round, and people who remember what you like.",
-  },
+const galleryImages = [
+  { src: DisplayImg, alt: "Kinfolk coffee shop seating" },
+  { src: DetailImg, alt: "Kinfolk specialty coffee detail" },
+  { src: HeroImg, alt: "Kinfolk food spread" },
+  { src: DisplayImg2, alt: "Kinfolk coffee shop counter" },
+  { src: ThirdWaveImg, alt: "Kinfolk coffee brewing" },
 ];
 
 export default function About() {
   return (
     <main className="bg-paper text-ink">
-      <section className="relative flex min-h-[620px] items-end overflow-hidden pt-28">
+      <section className="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
         <img
           src={HeroImg}
-          alt="Kinfolk Specialty Coffee interior"
+          alt="Kinfolk Specialty Coffee shop interior"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-ink/65" />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 md:px-10 md:pb-20">
-          <span className="label text-primary">About Kinfolk</span>
-          <h1 className="mt-4 max-w-3xl font-main text-5xl font-bold leading-none text-paper md:text-7xl">
-            Specialty coffee with a little more room to breathe.
+        <div className="absolute inset-0 bg-ink/70" />
+        <div className="relative z-10 flex max-w-lg flex-col items-center px-6 text-center">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-px w-6 bg-ash-light" />
+            <span className="label text-ash-light">Third Wave Coffee Club</span>
+            <div className="h-px w-6 bg-ash-light" />
+          </div>
+
+          <h1 className="mb-2 font-main text-6xl font-bold leading-none tracking-tight text-paper md:text-8xl">
+            Kinfolk
           </h1>
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-paper/85">
-            Kinfolk is a neighborhood coffee stop in Padre Garcia, Batangas for
-            slow drinks, comforting plates, and everyday connection.
+
+          <span className="mb-8 label text-[10px] text-primary md:text-xs">
+            Specialty Coffee
+          </span>
+
+          <p className="mb-9 max-w-sm text-sm font-medium leading-relaxed text-paper/85">
+            Third wave specialty coffee where every cup tells a story. Come for
+            the coffee, stay for the community.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              to="/menu"
+              className="flex items-center gap-2 bg-paper px-7 py-3 label text-[10px] text-ink transition-colors hover:bg-primary"
+            >
+              View menu <ArrowRight size={14} />
+            </Link>
+            <Link
+              to="/location"
+              className="border border-paper/40 px-7 py-3 label text-[10px] text-paper transition-colors hover:border-paper hover:bg-white/10"
+            >
+              Find us
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-10">
-          <div>
-            <span className="label text-stone-700">Third wave coffee club</span>
-            <h2 className="mt-4 font-main text-4xl font-bold leading-tight text-ink md:text-5xl">
-              We care where the coffee comes from, and how it lands with you.
+      <section className="overflow-hidden bg-[#f4f1e4] py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-6 md:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="label text-stone-700">01 — Why Kinfolk</span>
+            <h2 className="mt-4 font-main text-5xl font-bold uppercase leading-[0.86] tracking-[-0.04em] text-ink md:text-7xl">
+              Everything you need for a good pause
             </h2>
+            <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-stone-700">
+              Kinfolk is made for slow mornings, catch-ups, and quiet time.
+              Come in, settle down, and enjoy coffee made properly.
+            </p>
           </div>
-          <div className="space-y-5 text-base leading-relaxed text-ash">
-            <p>
-              Third wave coffee treats every cup as something traceable,
-              intentional, and worth slowing down for. That means better beans,
-              better recipes, and a bar team that keeps dialing in.
-            </p>
-            <p>
-              At Kinfolk, the point is not to make coffee feel complicated. It
-              is to make a good cup feel personal, whether you order a straight
-              americano, a creamy hojicha, or something iced after dinner.
-            </p>
+
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-12 md:grid-rows-[210px_150px_120px]">
+            <figure className="relative min-h-[260px] overflow-hidden bg-primary sm:row-span-2 md:col-span-3 md:min-h-0">
+              <img src={DisplayImg} alt={galleryImages[0].alt} className="absolute inset-0 h-full w-full object-cover" />
+            </figure>
+            <figure className="relative min-h-[260px] overflow-hidden bg-primary md:col-span-6 md:row-span-2 md:min-h-0">
+              <img src={HeroImg} alt={galleryImages[2].alt} className="absolute inset-0 h-full w-full object-cover" />
+            </figure>
+            <figure className="relative min-h-[190px] overflow-hidden bg-primary md:col-span-3 md:min-h-0">
+              <img src={DetailImg} alt={galleryImages[1].alt} className="absolute inset-0 h-full w-full object-cover" />
+            </figure>
+            <figure className="relative min-h-[220px] overflow-hidden bg-primary md:col-span-3 md:row-span-2 md:min-h-0">
+              <img src={DisplayImg2} alt={galleryImages[3].alt} className="absolute inset-0 h-full w-full object-cover" />
+            </figure>
+            <figure className="relative min-h-[180px] overflow-hidden bg-primary sm:col-start-2 md:col-span-3 md:col-start-6 md:min-h-0">
+              <img src={ThirdWaveImg} alt={galleryImages[4].alt} className="absolute inset-0 h-full w-full object-cover" />
+            </figure>
           </div>
         </div>
       </section>
 
-      <section className="bg-primary py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-3 md:px-10">
-          {values.map((value) => (
-            <article key={value.title} className="border-t border-ink/15 pt-6">
-              <span className="label text-stone-700">{value.label}</span>
-              <h3 className="mt-4 font-main text-3xl font-semibold text-ink">
-                {value.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ash">
-                {value.copy}
-              </p>
-            </article>
-          ))}
+      <section className="overflow-hidden bg-[#f4f1e4] pb-16 md:pb-24">
+        <div className="mx-auto max-w-6xl px-6 text-center md:px-10">
+          <span className="label text-stone-700">02 — Inside Kinfolk</span>
+          <h2 className="mt-3 font-main text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-ink md:text-6xl">
+            A space to slow down
+          </h2>
         </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:px-10">
-          <div className="relative min-h-[360px] overflow-hidden bg-primary">
-            <img
-              src={DisplayImg}
-              alt="Kinfolk coffee shop seating"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          <div className="relative min-h-[360px] overflow-hidden bg-ink p-8 text-paper md:p-10">
-            <img
-              src={DisplayImg2}
-              alt="Kinfolk coffee shop counter"
-              className="absolute inset-0 h-full w-full object-cover opacity-35"
-            />
-            <div className="relative flex h-full flex-col justify-end">
-              <span className="label text-primary">{business.slogan}</span>
-              <h2 className="mt-4 max-w-md font-main text-4xl font-bold leading-tight md:text-5xl">
-                Come for the coffee, stay for the table.
-              </h2>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/menu"
-                  className="inline-flex items-center gap-2 bg-paper px-6 py-3 label text-[10px] text-ink transition-colors hover:bg-primary"
-                >
-                  View menu <ArrowRight size={14} />
-                </Link>
-                <Link
-                  to="/location"
-                  className="border border-white/30 px-6 py-3 label text-[10px] text-paper transition-colors hover:border-paper"
-                >
-                  Find us
-                </Link>
+        <div className="mt-8 flex overflow-hidden" aria-label="Kinfolk photo gallery">
+          <div className="image-marquee-track flex w-max">
+            {[0, 1].map((group) => (
+              <div key={group} className="flex shrink-0 gap-3 pr-3 md:gap-4 md:pr-4" aria-hidden={group === 1}>
+                {galleryImages.map((image) => (
+                  <figure key={`${group}-${image.alt}`} className="h-56 w-44 shrink-0 overflow-hidden bg-primary sm:h-72 sm:w-56 md:h-80 md:w-64">
+                    <img src={image.src} alt={group === 0 ? image.alt : ""} className="h-full w-full object-cover" />
+                  </figure>
+                ))}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
