@@ -9,9 +9,9 @@ export default function Location() {
     <main className="bg-paper text-ink">
       <section className="pt-28 md:pt-32">
         <div className="mx-auto max-w-[1600px] px-6 pb-16 md:px-10">
-          <span className="label text-stone-700">Coffeehouse</span>
+          <span className="label text-stone-700">The pop-up</span>
           <h1 className="mt-4 font-main text-5xl font-bold leading-none text-ink md:text-7xl">
-            Find Kinfolk
+            Find Rev &amp; Brew
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ash">
             {business.location.description}
@@ -22,7 +22,7 @@ export default function Location() {
               <div className="relative aspect-[16/10] overflow-hidden bg-primary">
                 <img
                   src={DisplayImg}
-                  alt="Kinfolk Specialty Coffee storefront"
+                  alt="Café exterior"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
@@ -32,17 +32,28 @@ export default function Location() {
                   {business.location.branch}
                 </h2>
                 <p className="mt-3 max-w-xl text-base leading-relaxed text-ash">
-                  A single Kinfolk branch for specialty drinks, warm plates, and
-                  late coffee runs.
+                  Pull up for your evening coffee run. We're open daily until
+                  midnight, with an earlier start on Sundays.
                 </p>
               </div>
 
               <div className="grid gap-6 border-b border-ink/15 py-6 md:grid-cols-[1fr_auto]">
                 <div className="flex gap-3">
                   <MapPin className="mt-1 shrink-0 text-stone-700" size={18} />
-                  <p className="text-sm leading-relaxed text-ash">
-                    {business.location.address}
-                  </p>
+                  <div className="text-sm leading-relaxed text-ash">
+                    <p>{business.location.address}</p>
+                    <p className="mt-2">
+                      <a
+                        href={business.social.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4"
+                      >
+                        Message us for the exact pop-up spot
+                      </a>
+                      .
+                    </p>
+                  </div>
                 </div>
                 <a
                   href={directionsUrl}
@@ -50,7 +61,7 @@ export default function Location() {
                   rel="noopener noreferrer"
                   className="inline-flex w-fit items-center gap-2 bg-ink px-5 py-3 label text-[10px] text-paper transition-colors hover:bg-stone-700"
                 >
-                  Directions <Navigation size={14} />
+                  Search in Maps <Navigation size={14} />
                 </a>
               </div>
 
@@ -66,7 +77,7 @@ export default function Location() {
 
             <aside className="relative min-h-[520px] overflow-hidden bg-primary">
               <iframe
-                title="Kinfolk Specialty Coffee on Google Maps"
+                title="Poblacion, Padre Garcia area on Google Maps"
                 src={business.location.mapEmbed}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

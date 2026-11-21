@@ -1,28 +1,43 @@
+const mapQuery = "Rev & Brew, Poblacion, Padre Garcia, Batangas";
+
 export const business = {
-  name: "Kinfolk",
-  fullName: "Kinfolk Specialty Coffee",
-  slogan: "Brewing Connections",
-  siteUrl: "https://kinfolkspecialtycoffee.com",
-  email: "kinfolksc2024@gmail.com",
+  name: "Rev & Brew",
+  fullName: "Rev & Brew",
+  slogan: "Good coffee. Good company. One more stop.",
+  // Set VITE_SITE_URL to the production domain when it is ready.
+  siteUrl: import.meta.env.VITE_SITE_URL || "",
+  instagramHandle: "@_revandbrew",
+  email: "revandbrew2026@gmail.com",
   location: {
-    branch: "Padre Garcia",
-    address: "V6G5+FHW, Munting-Tubig - San Miguel Road, Rosario, Batangas",
+    branch: "Poblacion, Padre Garcia",
+    address: "Poblacion, Padre Garcia, Batangas",
     description:
-      "A quiet stop for specialty coffee, comfort food, and slow conversations in Padre Garcia, Batangas.",
-    mapQuery:
-      "V6G5+FHW, Munting-Tubig - San Miguel Road, Padre Garcia, Batangas",
-    mapUrl: "https://maps.app.goo.gl/dbXjmd1q1sSCchCi6",
-    mapPlaceUrl:
-      "https://www.google.com/maps/place/kinfolk/@13.8759899,121.2094723,19z/data=!4m6!3m5!1s0x33bd14562f7a3127:0xdb7e0daecc068db5!8m2!3d13.8762488!4d121.2089391!16s%2Fg%2F11zg9pmlvt",
+      "Your evening coffee stop in Poblacion, Padre Garcia, Batangas. Swing by the pop-up, grab a cup, and make a night of it.",
+    mapQuery,
+    mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`,
     mapEmbed:
-      "https://www.google.com/maps?q=13.8762488,121.2089391&z=19&output=embed",
+      "https://www.google.com/maps?q=Poblacion%2C%20Padre%20Garcia%2C%20Batangas&z=16&output=embed",
   },
   social: {
-    instagram: "https://www.instagram.com/kinfolkspecialtycoffee/",
-    facebook: "https://www.facebook.com/kinfolkspecialtycoffee",
+    instagram: "https://www.instagram.com/_revandbrew/",
+    facebook: "https://www.facebook.com/revandbrew",
   },
   hours: [
-    { day: "Monday — Thursday", time: "10:00 AM — 10:30 PM" },
-    { day: "Friday — Sunday", time: "10:00 AM — 11:00 PM" },
+    { day: "Monday – Saturday", time: "6:00 PM – 12:00 AM" },
+    { day: "Sunday", time: "4:00 PM – 12:00 AM" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "18:00",
+      closes: "00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Sunday"],
+      opens: "16:00",
+      closes: "00:00",
+    },
   ],
 };

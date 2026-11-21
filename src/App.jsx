@@ -13,7 +13,7 @@ import Contact from "./pages/Contact";
 
 function AppShell() {
   const [entered, setEntered] = useState(
-    () => sessionStorage.getItem("kinfolk_entered") === "true",
+    () => sessionStorage.getItem("revandbrew_entered") === "true",
   );
 
   useEffect(() => {

@@ -86,7 +86,112 @@ body {
   animation-play-state: paused;
 }
 
+/* Keep the hit area still while the scooter revs inside it. */
+.brand-mark {
+  position: relative;
+  display: block;
+  isolation: isolate;
+}
+
+.brand-mark__bike,
+.brand-mark__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-mark__bike {
+  position: relative;
+  transform-origin: 75% 85%;
+  transition: transform 450ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.brand-mark__image {
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.brand-mark__speed {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+}
+
+.brand-mark__speed span {
+  position: absolute;
+  left: 10%;
+  top: 48%;
+  width: 24%;
+  height: 2px;
+  border-radius: 2px;
+  background: #ed8b2c;
+  opacity: 0;
+}
+
+.brand-mark__speed span:nth-child(2) {
+  top: 65%;
+  width: 32%;
+  animation-delay: 120ms;
+}
+
+.brand-mark__speed span:nth-child(3) {
+  top: 82%;
+  width: 18%;
+  animation-delay: 260ms;
+}
+
+.brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__bike {
+  transform: translateX(7%) rotate(-3deg);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.8, 0.45);
+}
+
+.brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__image {
+  animation: scooter-rev 600ms linear infinite;
+}
+
+.brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__speed {
+  opacity: 1;
+}
+
+.brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__speed span {
+  animation-name: scooter-speed;
+  animation-duration: 420ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scooter-rev {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-1%); }
+  38% { transform: translateY(0.5%); }
+  54% { transform: translateY(-1.5%); }
+  68% { transform: translateY(0.5%); }
+  80% { transform: translateY(-1%); }
+  90% { transform: translateY(0.5%); }
+}
+
+@keyframes scooter-speed {
+  0% { opacity: 0; transform: translateX(25%) scaleX(0.4); }
+  25% { opacity: 0.85; }
+  100% { opacity: 0; transform: translateX(-140%) scaleX(1.2); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__bike,
+  .brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__image,
+  .brand-mark-trigger:is(:hover, :focus-visible) .brand-mark__speed span {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+
+  .brand-mark-trigger .brand-mark__speed {
+    display: none;
+  }
+
   .image-marquee-track {
     animation-play-state: paused;
   }

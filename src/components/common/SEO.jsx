@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { business } from "../../data/business";
 import { defaultSeo, seoPages } from "../../data/seo";
 
-const STRUCTURED_DATA_ID = "kinfolk-static-structured-data";
+const STRUCTURED_DATA_ID = "revandbrew-static-structured-data";
 
 function normalizePath(pathname) {
   if (pathname.length > 1 && pathname.endsWith("/")) {
@@ -13,7 +13,7 @@ function normalizePath(pathname) {
 }
 
 function getOrigin() {
-  return import.meta.env.VITE_SITE_URL || business.siteUrl;
+  return business.siteUrl || window.location.origin;
 }
 
 function setMeta(selector, attributes) {
@@ -45,43 +45,23 @@ function setLink(selector, attributes) {
 function buildStructuredData(origin, canonicalUrl) {
   return {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "@id": `${origin}/#restaurant`,
+    "@type": "CafeOrCoffeeShop",
+    "@id": `${origin}/#cafe`,
     name: business.fullName,
     url: origin,
-    image: `${origin}/favicon.svg`,
     description: defaultSeo.description,
     email: business.email,
-    servesCuisine: ["Coffee", "Cafe", "Comfort food"],
-    priceRange: "₱₱",
+    servesCuisine: ["Coffee"],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Munting-Tubig - San Miguel Road",
+      streetAddress: "Poblacion",
       addressLocality: "Padre Garcia",
       addressRegion: "Batangas",
       addressCountry: "PH",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 13.8762488,
-      longitude: 121.2089391,
-    },
-    hasMap: business.location.mapPlaceUrl,
+    hasMap: business.location.mapUrl,
     sameAs: [business.social.instagram, business.social.facebook],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        opens: "10:00",
-        closes: "22:30",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Friday", "Saturday", "Sunday"],
-        opens: "10:00",
-        closes: "23:00",
-      },
-    ],
+    openingHoursSpecification: business.openingHoursSpecification,
     mainEntityOfPage: canonicalUrl,
   };
 }
@@ -94,7 +74,6 @@ export default function SEO() {
     const page = seoPages[path] || defaultSeo;
     const origin = getOrigin().replace(/\/$/, "");
     const canonicalUrl = `${origin}${path === "/" ? "" : path}`;
-    const imageUrl = `${origin}/favicon.svg`;
 
     document.title = page.title;
 
@@ -126,10 +105,6 @@ export default function SEO() {
       property: "og:url",
       content: canonicalUrl,
     });
-    setMeta('meta[property="og:image"]', {
-      property: "og:image",
-      content: imageUrl,
-    });
     setMeta('meta[name="twitter:card"]', {
       name: "twitter:card",
       content: "summary",
@@ -141,10 +116,6 @@ export default function SEO() {
     setMeta('meta[name="twitter:description"]', {
       name: "twitter:description",
       content: page.description,
-    });
-    setMeta('meta[name="twitter:image"]', {
-      name: "twitter:image",
-      content: imageUrl,
     });
     setLink('link[rel="canonical"]', {
       rel: "canonical",

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Coffee, ChevronLeft, ChevronRight } from "lucide-react";
 import { coffeeMenu } from "../../data/coffee";
+import { business } from "../../data/business";
 
 const featuredCoffee = coffeeMenu.filter((c) =>
   [
@@ -67,10 +68,22 @@ export default function MenuPreview() {
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         {/* Heading */}
         <div className="text-center mb-10">
-          <span className="label text-stone-800!">Our menu</span>
+          <span className="label text-stone-800!">Draft menu preview</span>
           <h2 className="font-main font-bold text-4xl md:text-5xl text-stone-700 mt-3">
-            Every cup, brewed with intent
+            Find your next go-to cup
           </h2>
+          <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-stone-700">
+            Items and prices shown are draft listings. Check{" "}
+            <a
+              href={business.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4"
+            >
+              our Facebook page
+            </a>{" "}
+            for the current menu.
+          </p>
         </div>
 
         {/* Carousel */}

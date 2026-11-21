@@ -7,11 +7,11 @@ import DetailImg from "../assets/img1.jpg";
 import ThirdWaveImg from "../assets/thirdwaveimg.jpg";
 
 const galleryImages = [
-  { src: DisplayImg, alt: "Kinfolk coffee shop seating" },
-  { src: DetailImg, alt: "Kinfolk specialty coffee detail" },
-  { src: HeroImg, alt: "Kinfolk food spread" },
-  { src: DisplayImg2, alt: "Kinfolk coffee shop counter" },
-  { src: ThirdWaveImg, alt: "Kinfolk coffee brewing" },
+  { src: DisplayImg, alt: "Café seating" },
+  { src: DetailImg, alt: "Coffee detail" },
+  { src: HeroImg, alt: "Food and drinks on a table" },
+  { src: DisplayImg2, alt: "Café counter" },
+  { src: ThirdWaveImg, alt: "Coffee brewing" },
 ];
 
 export default function About() {
@@ -20,28 +20,28 @@ export default function About() {
       <section className="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
         <img
           src={HeroImg}
-          alt="Kinfolk Specialty Coffee shop interior"
+          alt="Café interior"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="relative z-10 flex max-w-lg flex-col items-center px-6 text-center">
           <div className="mb-6 flex items-center gap-3">
             <div className="h-px w-6 bg-ash-light" />
-            <span className="label text-ash-light">Third Wave Coffee Club</span>
+            <span className="label text-ash-light">Your evening coffee stop</span>
             <div className="h-px w-6 bg-ash-light" />
           </div>
 
-          <h1 className="mb-2 font-main text-6xl font-bold leading-none tracking-tight text-paper md:text-8xl">
-            Kinfolk
+          <h1 className="mb-2 font-sans text-5xl font-semibold leading-none tracking-tight text-paper md:text-7xl">
+            REV &amp; BREW
           </h1>
 
           <span className="mb-8 label text-[10px] text-primary md:text-xs">
-            Specialty Coffee
+            Pop-up café · Padre Garcia
           </span>
 
           <p className="mb-9 max-w-sm text-sm font-medium leading-relaxed text-paper/85">
-            Third wave specialty coffee where every cup tells a story. Come for
-            the coffee, stay for the community.
+            A coffee stop for the everyday ride. Pull up, bring your people,
+            and let a quick cup turn into a good night.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -64,13 +64,14 @@ export default function About() {
       <section className="overflow-hidden bg-[#f4f1e4] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-6 md:px-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="label text-stone-700">01 — Why Kinfolk</span>
+            <span className="label text-stone-700">01 — Why Rev &amp; Brew</span>
             <h2 className="mt-4 font-main text-5xl font-bold uppercase leading-[0.86] tracking-[-0.04em] text-ink md:text-7xl">
-              Everything you need for a good pause
+              A good reason to pull over
             </h2>
             <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-stone-700">
-              Kinfolk is made for slow mornings, catch-ups, and quiet time.
-              Come in, settle down, and enjoy coffee made properly.
+              Rev &amp; Brew is a pop-up café in Poblacion, Padre Garcia, Batangas.
+              From after-work coffee runs to weekend catch-ups, we're here for
+              the little stops that make your day better.
             </p>
           </div>
 
@@ -96,12 +97,12 @@ export default function About() {
 
       <section className="overflow-hidden bg-[#f4f1e4] pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-6 text-center md:px-10">
-          <span className="label text-stone-700">02 — Inside Kinfolk</span>
+          <span className="label text-stone-700">02 — The Rev &amp; Brew mood</span>
           <h2 className="mt-3 font-main text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-ink md:text-6xl">
-            A space to slow down
+            Good company. No rush.
           </h2>
         </div>
-        <div className="mt-8 flex overflow-hidden" aria-label="Kinfolk photo gallery">
+        <div className="mt-8 flex overflow-hidden" aria-label="Café photo gallery">
           <div className="image-marquee-track flex w-max">
             {[0, 1].map((group) => (
               <div key={group} className="flex shrink-0 gap-3 pr-3 md:gap-4 md:pr-4" aria-hidden={group === 1}>

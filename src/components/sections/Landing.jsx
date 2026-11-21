@@ -3,38 +3,38 @@ import { useNavigate } from "react-router-dom";
 import { InstagramIcon, FacebookIcon } from "../ui/SocialIcons";
 import { business } from "../../data/business";
 import homeVideo from "../../assets/homeVid.mp4";
-import logo from "../../assets/logo.png";
+import BrandMark from "../ui/BrandMark";
 
 const sections = [
   {
     key: "home",
     label: "Home",
     to: "/",
-    description: "Where coffee meets connection.",
+    description: "Your next coffee stop starts here.",
   },
   {
     key: "menu",
     label: "Menu",
     to: "/menu",
-    description: "Coffee, snacks, and everything.",
+    description: "Find out what's brewing at the pop-up.",
   },
   {
     key: "about",
     label: "About",
     to: "/about",
-    description: "Our story, from bean to cup.",
+    description: "Good coffee, good company, and the open road.",
   },
   {
     key: "location",
     label: "Location",
     to: "/location",
-    description: "Find us and drop by.",
+    description: "Poblacion, Padre Garcia. See you tonight.",
   },
   {
     key: "contact",
     label: "Contact",
     to: "/contact",
-    description: "Say hello, we'd love to hear from you.",
+    description: "Drop us a message before you drop by.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function Landing({ onEnter }) {
   }, []);
 
   const handleSelect = (section) => {
-    sessionStorage.setItem("kinfolk_entered", "true");
+    sessionStorage.setItem("revandbrew_entered", "true");
     onEnter?.();
     navigate(section.to);
   };
@@ -80,7 +80,14 @@ export default function Landing({ onEnter }) {
               : "top-14 translate-y-0"
           }`}
         >
-          <img src={logo} alt="Kinfolk" />
+          <button
+            type="button"
+            onClick={() => handleSelect(sections[0])}
+            aria-label={`Enter ${business.name} home`}
+            className="brand-mark-trigger rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+          >
+            <BrandMark className="h-24 w-24 md:h-28 md:w-28" />
+          </button>
         </div>
 
         {/* Nav + description, side by side */}

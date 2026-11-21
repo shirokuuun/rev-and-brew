@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { business } from "../../data/business";
 import { InstagramIcon, FacebookIcon } from "../ui/SocialIcons";
+import BrandMark from "../ui/BrandMark";
 
 const links = [
   { to: "/", label: "Home" },
@@ -45,7 +46,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   // Contact starts on a light split layout, so keep the dark header visible
-  // there instead of allowing the white wordmark and Contact link to disappear.
+  // there instead of allowing the Contact link to disappear.
   const hasOverlayHero = ["/", "/about"].includes(location.pathname);
   const solidHeader = scrolled || !hasOverlayHero;
 
@@ -105,12 +106,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="absolute left-1/2 z-10 -translate-x-1/2 transition-transform hover:scale-[1.02]"
-          aria-label="Kinfolk home"
+          className="brand-mark-trigger absolute left-1/2 z-10 -translate-x-1/2 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+          aria-label={`${business.name} home`}
         >
-          <span className="font-main text-2xl font-bold tracking-tight text-paper">
-            Kinfolk
-          </span>
+          <BrandMark className="h-14 w-14" />
         </Link>
 
         {/* Desktop nav */}
@@ -169,7 +168,7 @@ export default function Navbar() {
             href={business.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Kinfolk on Instagram"
+            aria-label={`${business.name} on Instagram`}
           >
             <InstagramIcon
               size={16}
@@ -180,7 +179,7 @@ export default function Navbar() {
             href={business.social.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Kinfolk on Facebook"
+            aria-label={`${business.name} on Facebook`}
           >
             <FacebookIcon
               size={16}
@@ -203,9 +202,14 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 bg-ink z-50 flex flex-col md:hidden">
           <div className="relative flex h-16 items-center justify-end border-b border-white/10 px-6">
-            <span className="absolute left-1/2 -translate-x-1/2 font-main text-2xl font-bold text-paper">
-              Kinfolk
-            </span>
+            <Link
+              to="/"
+              onClick={(event) => handleNavClick(event, "/")}
+              aria-label={`${business.name} home`}
+              className="brand-mark-trigger absolute left-1/2 -translate-x-1/2 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+            >
+              <BrandMark className="h-14 w-14" />
+            </Link>
             <button
               onClick={() => setOpen(false)}
               aria-label="Close menu"

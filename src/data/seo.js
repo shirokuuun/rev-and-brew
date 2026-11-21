@@ -1,34 +1,34 @@
 import { business } from "./business";
 
 const defaultDescription =
-  "Kinfolk Specialty Coffee in Padre Garcia, Batangas serves third wave coffee, comfort food, rice bowls, pasta, snacks, and late coffee runs.";
+  "Rev & Brew is a pop-up café in Poblacion, Padre Garcia, Batangas. Drop by for evening coffee, good company, and your next coffee run. Open daily until midnight.";
 
 export const seoPages = {
   "/": {
-    title: "Kinfolk Specialty Coffee | Coffee Shop in Padre Garcia, Batangas",
+    title: "Rev & Brew | Pop-up Café in Padre Garcia, Batangas",
     description: defaultDescription,
   },
   "/menu": {
-    title: "Menu | Kinfolk Specialty Coffee",
+    title: "Menu | Rev & Brew",
     description:
-      "Explore Kinfolk Specialty Coffee's menu of espresso drinks, matcha, hojicha, rice bowls, pasta, sandwiches, wraps, snacks, and add-ons.",
+      "Find your next cup at Rev & Brew. Check our social pages for the latest pop-up menu, drink prices, and availability in Padre Garcia, Batangas.",
   },
   "/about": {
-    title: "About | Kinfolk Specialty Coffee",
+    title: "About | Rev & Brew",
     description:
-      "Learn about Kinfolk Specialty Coffee, a Padre Garcia, Batangas coffee shop built around third wave coffee, comfort food, and everyday connection.",
+      "Meet Rev & Brew, your evening pop-up coffee stop in Poblacion, Padre Garcia, Batangas. Good coffee, familiar faces, and a reason to take a break.",
   },
   "/location": {
-    title: "Location | Kinfolk Specialty Coffee Padre Garcia",
-    description: `Visit Kinfolk Specialty Coffee at ${business.location.address}. See hours, directions, and the Google Maps location.`,
+    title: "Location & Hours | Rev & Brew",
+    description: `Find Rev & Brew in ${business.location.address}. Open Monday–Saturday, 6 PM–midnight, and Sunday, 4 PM–midnight.`,
   },
   "/contact": {
-    title: "Contact | Kinfolk Specialty Coffee",
+    title: "Contact | Rev & Brew",
     description:
-      "Contact Kinfolk Specialty Coffee by email, Instagram, or Facebook for shop questions, visit details, and updates.",
+      "Contact Rev & Brew by email, Instagram, or Facebook for the latest menu, pop-up updates, and help planning your next coffee stop.",
   },
   "/landing": {
-    title: "Kinfolk Specialty Coffee | Brewing Connections",
+    title: "Rev & Brew | Your Next Coffee Stop",
     description: defaultDescription,
   },
 };
