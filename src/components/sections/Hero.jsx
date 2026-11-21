@@ -1,54 +1,45 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import heroImg from "../../assets/heroimg.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+    <section className="relative h-[100svh] min-h-0 overflow-hidden bg-ink text-paper">
       <img
         src={heroImg}
-        alt="Kinfolk Specialty Coffee shop interior"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="Food and drinks on a wooden table"
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
-      {/* Dark overlay for legibility */}
-      <div className="absolute inset-0 bg-ink/70" />
+      <div className="absolute inset-0 bg-ink/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/25 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/55 to-transparent" />
 
-      {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-lg">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-6 h-px bg-ash-light" />
-          <span className="label text-ash-light">Third Wave Coffee Club</span>
-          <div className="w-6 h-px bg-ash-light" />
-        </div>
-
-        <h1 className="font-main font-bold text-paper leading-none text-6xl md:text-8xl mb-2 tracking-tight">
-          Kinfolk
-        </h1>
-
-        <span className="label text-primary text-[10px] md:text-xs mb-8">
-          Specialty Coffee
-        </span>
-
-        <p className="text-paper/85 font-medium text-sm leading-relaxed max-w-sm mb-9">
-          Third wave specialty coffee where every cup tells a story. Come for
-          the coffee, stay for the community.
-        </p>
-
-        <div className="flex gap-3 flex-wrap justify-center">
+      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-[1600px] flex-col justify-end gap-6 px-6 pb-8 pt-20 md:px-10 md:pb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
+        <div className="max-w-2xl">
+          <p className="label mb-3 text-paper/75 md:mb-4">
+            Rev &amp; Brew · Pop-up café
+          </p>
+          <h1 className="font-main text-[clamp(3.7rem,7.25vw,8rem)] leading-[0.82] tracking-[-0.045em] text-paper">
+            Rev up.
+            <br />
+            Brew. <br />
+            <em className="font-main">Repeat.</em>
+          </h1>
           <Link
             to="/menu"
-            className="bg-paper text-ink px-7 py-3 label text-[10px] flex items-center gap-2 hover:bg-primary transition-colors"
+            className="mt-5 inline-flex items-center gap-3 border-b border-paper/70 pb-2 label text-[10px] text-paper transition-colors hover:border-primary hover:text-primary md:mt-6"
           >
-            View menu <ArrowRight size={14} />
-          </Link>
-          <Link
-            to="/location"
-            className="border border-paper/40 text-paper px-7 py-3 label text-[10px] hover:border-paper hover:bg-white/10 transition-colors"
-          >
-            Find us
+            Explore the menu <ArrowDownRight size={16} strokeWidth={1.5} />
           </Link>
         </div>
+
+        <p className="max-w-[11rem] self-end text-right font-main text-xl leading-[1.05] text-paper/90 md:text-2xl lg:mb-1">
+          Pull up.
+          <br />
+          Grab a cup.
+          <br />
+          Stay for a while.
+        </p>
       </div>
     </section>
   );

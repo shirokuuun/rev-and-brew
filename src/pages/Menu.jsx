@@ -1,4 +1,5 @@
 import { Coffee, Plus } from "lucide-react";
+import { business } from "../data/business";
 import { coffeeMenu, coffeeAddon } from "../data/coffee";
 import {
   addons,
@@ -64,13 +65,26 @@ export default function Menu() {
       <section className="pt-28 md:pt-32">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-14 md:grid-cols-[0.9fr_1.1fr] md:px-10">
           <div className="flex flex-col justify-end">
-            <span className="label text-stone-700">Menu</span>
+            <span className="label text-stone-700">Rev &amp; Brew · Draft menu</span>
             <h1 className="mt-4 max-w-xl font-main text-5xl font-bold leading-none text-ink md:text-7xl">
-              Coffee, plates, and something to stay for.
+              Your next coffee run starts here.
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-ash">
-              Espresso classics, bright non-coffee drinks, rice bowls, pasta,
-              and snacks made for slow afternoons.
+              A quick cup, a catch-up with friends, or another round before
+              heading home. Make a stop at Rev &amp; Brew.
+            </p>
+            <p className="mt-5 max-w-md border-l-2 border-ink/30 pl-4 text-sm leading-relaxed text-stone-700">
+              The items and prices below are draft listings. For our current
+              menu and availability,{" "}
+              <a
+                href={business.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4"
+              >
+                message us on Facebook
+              </a>
+              .
             </p>
           </div>
 
@@ -116,7 +130,7 @@ export default function Menu() {
             <div>
               <span className="label text-stone-700">Kitchen</span>
               <h2 className="mt-3 font-main text-4xl font-bold text-ink md:text-5xl">
-                Comfort food, made compact.
+                Something for the coffee run.
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-ash">

@@ -17,8 +17,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-10 mb-12">
         {/* Brand block */}
         <div>
-          <span className="font-main font-bold text-2xl text-paper">
-            Kinfolk
+          <span className="font-sans font-semibold text-2xl text-paper">
+            {business.name.toUpperCase()}
           </span>
           <p className="text-ash text-sm mt-3 max-w-[220px]">
             {business.slogan}
@@ -78,7 +78,7 @@ export default function Footer() {
         {/* Hours */}
         <div>
           <span className="font-semibold text-sm text-paper block mb-4">
-            Hours
+            Open daily
           </span>
           <div className="space-y-2">
             {business.hours.map((h) => (
@@ -96,7 +96,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 pt-6 border-t border-white/10 text-center">
         <span className="text-ash text-xs">
-          © 2026 Kinfolk Specialty Coffee
+          © {new Date().getFullYear()} {business.name}
         </span>
       </div>
     </footer>

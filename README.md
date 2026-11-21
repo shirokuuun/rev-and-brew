@@ -1,16 +1,28 @@
-# React + Vite
+﻿# Rev & Brew
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React and Vite website for Rev & Brew, a pop-up café in Poblacion, Padre Garcia, Batangas.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+Run `npm run build` for a production build and `npm run lint` to check the source.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Content
 
-## Expanding the Oxlint configuration
+Business details, social links, email, and hours live in `src/data/business.js`. Hours are Monday–Saturday, 6 PM–midnight, and Sunday, 4 PM–midnight. Page titles and descriptions live in `src/data/seo.js`; keep the static metadata in `index.html` consistent when updating business details.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The existing food and drink listings and prices are retained as **draft content**, as requested. Update `src/data/coffee.js` and `src/data/food.js` with the confirmed menu before removing the draft notices in `Menu.jsx` and `MenuPreview.jsx`.
+
+Photos, drink images, video, fonts, and favicon are unchanged for the separate asset pass. The navigation and entry menu use the supplied scooter logo in `src/assets/revandbrew-scooter.png` through `BrandMark.jsx`.
+
+The location map shows the Poblacion area. Its directions link searches for Rev & Brew rather than reusing the former café's pin. Replace these with a verified pin when available.
+
+## Production URL
+
+Copy `.env.example` to `.env.local` and set `VITE_SITE_URL` to the confirmed production origin if needed. Otherwise, runtime canonical and sharing URLs use the current site's origin. The old brand's sitemap and robots sitemap reference were removed; add a sitemap for the confirmed domain before launch.
+
+Brand content was informed by [Rev & Brew on Facebook](https://www.facebook.com/revandbrew), the supplied wordmark and scooter references, and the confirmed hours and email. The linked Instagram account is [@_revandbrew](https://www.instagram.com/_revandbrew/).
